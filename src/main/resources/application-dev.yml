@@ -17,6 +17,17 @@ spring:
     username: medic
     password: medic123!
 
+cors:
+  mapping: "/**"
+  methods: GET, PATCH, DELETE, POST, OPTIONS, PUT
+  headers: "*"
+  allowed-origins: "*"
+
+jwt:
+  access:
+    secret-key: medic-jwt-secret
+    expired-milly-seconds: 86400000 # 하루(24시간)
+
 logging:
   pattern:
     console: "[%d{yyyy-MM-dd HH:mm:ss}:%-3relative][%clr(%-5p)][%thread][%clr(%logger{20}.%method){cyan}] - %msg%n"
