@@ -1,0 +1,38 @@
+server:
+  port: 8001
+
+spring:
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+        show_sql: true
+    hibernate:
+      ddl-auto: create
+
+  datasource:
+    url: jdbc:mysql://52.78.188.110:3306/medic?allowPublicKeyRetrieval=true&useSSL=false
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: medic
+    password: medic123!
+
+logging:
+  pattern:
+    console: "[%d{yyyy-MM-dd HH:mm:ss}:%-3relative][%clr(%-5p)][%thread][%clr(%logger{20}.%method){cyan}] - %msg%n"
+    file: "[%d{yyyy-MM-dd HH:mm:ss}:%-3relative][%-5p][%thread][%logger{20}.%method] - %msg%n"
+
+  file:
+    name: ~/logs/medic.log
+
+  logback:
+    rollingpolicy:
+      max-file-size: 10MB
+      max-history: 30
+      file-name-pattern: "${LOG_FILE}%d{yyyy-MM-dd}-%i.log"
+      total-size-cap: 50MB
+
+springdoc:
+  swagger-ui:
+    enabled: true
+    operations-sorter: alpha

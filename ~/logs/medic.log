@@ -1,0 +1,468 @@
+[2024-07-23 21:52:05:689][INFO ][main][o.l.m.MedicApiApplication.logStarting] - Starting MedicApiApplication using Java 17.0.2 with PID 58721 (/Users/2dongyeop/kmong/medic-api/build/classes/java/main started by 2dongyeop in /Users/2dongyeop/kmong/medic-api)
+[2024-07-23 21:52:05:695][INFO ][main][o.l.m.MedicApiApplication.logStartupProfileInfo] - No active profile set, falling back to 1 default profile: "default"
+[2024-07-23 21:52:06:1800][INFO ][main][o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2024-07-23 21:52:06:1816][INFO ][main][o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn] - Finished Spring Data repository scanning in 11 ms. Found 0 JPA repository interfaces.
+[2024-07-23 21:52:07:2343][INFO ][main][o.s.b.w.e.t.TomcatWebServer.initialize] - Tomcat initialized with port 8001 (http)
+[2024-07-23 21:52:07:2350][INFO ][main][o.a.c.c.StandardService.log] - Starting service [Tomcat]
+[2024-07-23 21:52:07:2350][INFO ][main][o.a.c.c.StandardEngine.log] - Starting Servlet engine: [Apache Tomcat/10.1.26]
+[2024-07-23 21:52:07:2393][INFO ][main][o.a.c.c.C.[.[.[/].log] - Initializing Spring embedded WebApplicationContext
+[2024-07-23 21:52:07:2394][INFO ][main][o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext] - Root WebApplicationContext: initialization completed in 1624 ms
+[2024-07-23 21:52:07:2516][INFO ][main][o.h.j.i.u.LogHelper.logPersistenceUnitInformation] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[2024-07-23 21:52:07:2542][INFO ][main][o.hibernate.Version.logVersion] - HHH000412: Hibernate ORM core version 6.5.2.Final
+[2024-07-23 21:52:07:2561][INFO ][main][o.h.c.i.RegionFactoryInitiator.initiateService] - HHH000026: Second-level cache disabled
+[2024-07-23 21:52:07:2801][INFO ][main][o.s.o.j.p.SpringPersistenceUnitInfo.addTransformer] - No LoadTimeWeaver setup: ignoring JPA class transformer
+[2024-07-23 21:52:07:2820][INFO ][main][c.z.h.HikariDataSource.getConnection] - HikariPool-1 - Starting...
+[2024-07-23 21:52:38:33914][WARN ][main][o.h.e.j.e.i.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata] - HHH000342: Could not obtain connection to query metadata
+java.lang.NullPointerException: Cannot invoke "org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(java.sql.SQLException, String)" because the return value of "org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.sqlExceptionHelper()" is null
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:116)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:290)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:123)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:77)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:221)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:189)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:171)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1431)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1502)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:954)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at org.lion.medicapi.MedicApiApplication.main(MedicApiApplication.java:10)
+[2024-07-23 21:52:38:33959][WARN ][main][o.h.orm.deprecation.constructDialect] - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-07-23 21:52:38:33961][WARN ][main][o.h.orm.deprecation.logSelectedDialect] - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+[2024-07-23 21:52:38:34155][INFO ][main][o.h.e.t.j.p.i.JtaPlatformInitiator.initiateService] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2024-07-23 21:52:38:34158][INFO ][main][o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2024-07-23 21:52:39:34596][WARN ][main][o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2024-07-23 21:52:40:35386][WARN ][main][o.s.b.a.s.s.UserDetailsServiceAutoConfiguration.getOrDeducePassword] - 
+
+Using generated security password: 44223c78-9ecb-4b88-bc00-ece256742f15
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+[2024-07-23 21:52:40:35424][INFO ][main][o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer.configure] - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+[2024-07-23 21:52:40:35607][INFO ][main][o.s.b.w.e.t.TomcatWebServer.start] - Tomcat started on port 8001 (http) with context path '/'
+[2024-07-23 21:52:40:35643][INFO ][main][o.l.m.MedicApiApplication.logStarted] - Started MedicApiApplication in 35.475 seconds (process running for 36.639)
+[2024-07-23 21:55:37:213147][INFO ][SpringApplicationShutdownHook][o.s.o.j.LocalContainerEntityManagerFactoryBean.destroy] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[2024-07-23 21:55:41:677][INFO ][main][o.l.m.MedicApiApplication.logStarting] - Starting MedicApiApplication using Java 17.0.2 with PID 59019 (/Users/2dongyeop/kmong/medic-api/build/classes/java/main started by 2dongyeop in /Users/2dongyeop/kmong/medic-api)
+[2024-07-23 21:55:41:680][INFO ][main][o.l.m.MedicApiApplication.logStartupProfileInfo] - No active profile set, falling back to 1 default profile: "default"
+[2024-07-23 21:55:41:1560][INFO ][main][o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2024-07-23 21:55:41:1575][INFO ][main][o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn] - Finished Spring Data repository scanning in 10 ms. Found 0 JPA repository interfaces.
+[2024-07-23 21:55:42:2055][INFO ][main][o.s.b.w.e.t.TomcatWebServer.initialize] - Tomcat initialized with port 8001 (http)
+[2024-07-23 21:55:42:2062][INFO ][main][o.a.c.c.StandardService.log] - Starting service [Tomcat]
+[2024-07-23 21:55:42:2062][INFO ][main][o.a.c.c.StandardEngine.log] - Starting Servlet engine: [Apache Tomcat/10.1.26]
+[2024-07-23 21:55:42:2104][INFO ][main][o.a.c.c.C.[.[.[/].log] - Initializing Spring embedded WebApplicationContext
+[2024-07-23 21:55:42:2104][INFO ][main][o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext] - Root WebApplicationContext: initialization completed in 1355 ms
+[2024-07-23 21:55:42:2214][INFO ][main][o.h.j.i.u.LogHelper.logPersistenceUnitInformation] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[2024-07-23 21:55:42:2239][INFO ][main][o.hibernate.Version.logVersion] - HHH000412: Hibernate ORM core version 6.5.2.Final
+[2024-07-23 21:55:42:2254][INFO ][main][o.h.c.i.RegionFactoryInitiator.initiateService] - HHH000026: Second-level cache disabled
+[2024-07-23 21:55:42:2485][INFO ][main][o.s.o.j.p.SpringPersistenceUnitInfo.addTransformer] - No LoadTimeWeaver setup: ignoring JPA class transformer
+[2024-07-23 21:55:42:2502][INFO ][main][c.z.h.HikariDataSource.getConnection] - HikariPool-1 - Starting...
+[2024-07-23 21:55:44:3589][WARN ][main][o.h.e.j.e.i.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata] - HHH000342: Could not obtain connection to query metadata
+java.lang.NullPointerException: Cannot invoke "org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(java.sql.SQLException, String)" because the return value of "org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.sqlExceptionHelper()" is null
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:116)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:290)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:123)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:77)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:221)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:189)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:171)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1431)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1502)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:954)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at org.lion.medicapi.MedicApiApplication.main(MedicApiApplication.java:10)
+[2024-07-23 21:55:44:3627][WARN ][main][o.h.orm.deprecation.constructDialect] - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-07-23 21:55:44:3628][WARN ][main][o.h.orm.deprecation.logSelectedDialect] - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+[2024-07-23 21:55:44:3820][INFO ][main][o.h.e.t.j.p.i.JtaPlatformInitiator.initiateService] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2024-07-23 21:55:44:3824][INFO ][main][o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2024-07-23 21:55:44:3979][WARN ][main][o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2024-07-23 21:55:44:4366][WARN ][main][o.s.b.a.s.s.UserDetailsServiceAutoConfiguration.getOrDeducePassword] - 
+
+Using generated security password: b4b5d05a-3b56-40a0-b002-32f17378745d
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+[2024-07-23 21:55:44:4387][INFO ][main][o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer.configure] - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+[2024-07-23 21:55:44:4501][INFO ][main][o.s.b.w.e.t.TomcatWebServer.start] - Tomcat started on port 8001 (http) with context path '/'
+[2024-07-23 21:55:44:4516][INFO ][main][o.l.m.MedicApiApplication.logStarted] - Started MedicApiApplication in 4.367 seconds (process running for 4.97)
+[2024-07-23 21:56:21:41236][INFO ][SpringApplicationShutdownHook][o.s.o.j.LocalContainerEntityManagerFactoryBean.destroy] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[2024-07-23 21:56:25:669][INFO ][main][o.l.m.MedicApiApplication.logStarting] - Starting MedicApiApplication using Java 17.0.2 with PID 59132 (/Users/2dongyeop/kmong/medic-api/build/classes/java/main started by 2dongyeop in /Users/2dongyeop/kmong/medic-api)
+[2024-07-23 21:56:25:673][INFO ][main][o.l.m.MedicApiApplication.logStartupProfileInfo] - No active profile set, falling back to 1 default profile: "default"
+[2024-07-23 21:56:26:1566][INFO ][main][o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2024-07-23 21:56:26:1582][INFO ][main][o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn] - Finished Spring Data repository scanning in 11 ms. Found 0 JPA repository interfaces.
+[2024-07-23 21:56:26:2080][INFO ][main][o.s.b.w.e.t.TomcatWebServer.initialize] - Tomcat initialized with port 8001 (http)
+[2024-07-23 21:56:26:2087][INFO ][main][o.a.c.c.StandardService.log] - Starting service [Tomcat]
+[2024-07-23 21:56:26:2088][INFO ][main][o.a.c.c.StandardEngine.log] - Starting Servlet engine: [Apache Tomcat/10.1.26]
+[2024-07-23 21:56:26:2137][INFO ][main][o.a.c.c.C.[.[.[/].log] - Initializing Spring embedded WebApplicationContext
+[2024-07-23 21:56:26:2139][INFO ][main][o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext] - Root WebApplicationContext: initialization completed in 1415 ms
+[2024-07-23 21:56:26:2260][INFO ][main][o.h.j.i.u.LogHelper.logPersistenceUnitInformation] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[2024-07-23 21:56:26:2285][INFO ][main][o.hibernate.Version.logVersion] - HHH000412: Hibernate ORM core version 6.5.2.Final
+[2024-07-23 21:56:26:2302][INFO ][main][o.h.c.i.RegionFactoryInitiator.initiateService] - HHH000026: Second-level cache disabled
+[2024-07-23 21:56:27:2532][INFO ][main][o.s.o.j.p.SpringPersistenceUnitInfo.addTransformer] - No LoadTimeWeaver setup: ignoring JPA class transformer
+[2024-07-23 21:56:27:2550][INFO ][main][c.z.h.HikariDataSource.getConnection] - HikariPool-1 - Starting...
+[2024-07-23 21:56:28:3632][WARN ][main][o.h.e.j.e.i.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata] - HHH000342: Could not obtain connection to query metadata
+java.lang.NullPointerException: Cannot invoke "org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(java.sql.SQLException, String)" because the return value of "org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.sqlExceptionHelper()" is null
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:116)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:290)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:123)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:77)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:221)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:189)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:171)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1431)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1502)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:954)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at org.lion.medicapi.MedicApiApplication.main(MedicApiApplication.java:10)
+[2024-07-23 21:56:28:3675][WARN ][main][o.h.orm.deprecation.constructDialect] - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-07-23 21:56:28:3875][INFO ][main][o.h.e.t.j.p.i.JtaPlatformInitiator.initiateService] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2024-07-23 21:56:28:3879][INFO ][main][o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2024-07-23 21:56:28:4040][WARN ][main][o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2024-07-23 21:56:29:4439][WARN ][main][o.s.b.a.s.s.UserDetailsServiceAutoConfiguration.getOrDeducePassword] - 
+
+Using generated security password: 1d7bf60f-a8be-4022-af68-273e0b27b5cb
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+[2024-07-23 21:56:29:4464][INFO ][main][o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer.configure] - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+[2024-07-23 21:56:29:4589][INFO ][main][o.s.b.w.e.t.TomcatWebServer.start] - Tomcat started on port 8001 (http) with context path '/'
+[2024-07-23 21:56:29:4613][INFO ][main][o.l.m.MedicApiApplication.logStarted] - Started MedicApiApplication in 4.467 seconds (process running for 5.015)
+[2024-07-23 21:56:45:21227][INFO ][SpringApplicationShutdownHook][o.s.o.j.LocalContainerEntityManagerFactoryBean.destroy] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[2024-07-23 21:56:49:673][INFO ][main][o.l.m.MedicApiApplication.logStarting] - Starting MedicApiApplication using Java 17.0.2 with PID 59163 (/Users/2dongyeop/kmong/medic-api/build/classes/java/main started by 2dongyeop in /Users/2dongyeop/kmong/medic-api)
+[2024-07-23 21:56:49:678][INFO ][main][o.l.m.MedicApiApplication.logStartupProfileInfo] - No active profile set, falling back to 1 default profile: "default"
+[2024-07-23 21:56:50:1588][INFO ][main][o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2024-07-23 21:56:50:1603][INFO ][main][o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn] - Finished Spring Data repository scanning in 10 ms. Found 0 JPA repository interfaces.
+[2024-07-23 21:56:50:2119][INFO ][main][o.s.b.w.e.t.TomcatWebServer.initialize] - Tomcat initialized with port 8001 (http)
+[2024-07-23 21:56:50:2127][INFO ][main][o.a.c.c.StandardService.log] - Starting service [Tomcat]
+[2024-07-23 21:56:50:2128][INFO ][main][o.a.c.c.StandardEngine.log] - Starting Servlet engine: [Apache Tomcat/10.1.26]
+[2024-07-23 21:56:50:2185][INFO ][main][o.a.c.c.C.[.[.[/].log] - Initializing Spring embedded WebApplicationContext
+[2024-07-23 21:56:50:2186][INFO ][main][o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext] - Root WebApplicationContext: initialization completed in 1459 ms
+[2024-07-23 21:56:50:2305][INFO ][main][o.h.j.i.u.LogHelper.logPersistenceUnitInformation] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[2024-07-23 21:56:50:2334][INFO ][main][o.hibernate.Version.logVersion] - HHH000412: Hibernate ORM core version 6.5.2.Final
+[2024-07-23 21:56:50:2352][INFO ][main][o.h.c.i.RegionFactoryInitiator.initiateService] - HHH000026: Second-level cache disabled
+[2024-07-23 21:56:51:2584][INFO ][main][o.s.o.j.p.SpringPersistenceUnitInfo.addTransformer] - No LoadTimeWeaver setup: ignoring JPA class transformer
+[2024-07-23 21:56:51:2603][INFO ][main][c.z.h.HikariDataSource.getConnection] - HikariPool-1 - Starting...
+[2024-07-23 21:56:52:3689][WARN ][main][o.h.e.j.e.i.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata] - HHH000342: Could not obtain connection to query metadata
+java.lang.NullPointerException: Cannot invoke "org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(java.sql.SQLException, String)" because the return value of "org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.sqlExceptionHelper()" is null
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:116)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:290)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:123)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:77)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:221)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:189)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:171)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1431)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1502)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:954)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at org.lion.medicapi.MedicApiApplication.main(MedicApiApplication.java:10)
+[2024-07-23 21:56:52:3701][ERROR][main][o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory] - Failed to initialize JPA EntityManagerFactory: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
+[2024-07-23 21:56:52:3704][WARN ][main][o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext.refresh] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
+[2024-07-23 21:56:52:3727][INFO ][main][o.a.c.c.StandardService.log] - Stopping service [Tomcat]
+[2024-07-23 21:56:52:3764][INFO ][main][o.s.b.a.l.ConditionEvaluationReportLogger.logMessage] - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+[2024-07-23 21:56:52:3779][ERROR][main][o.s.b.SpringApplication.reportFailure] - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1806)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:954)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at org.lion.medicapi.MedicApiApplication.main(MedicApiApplication.java:10)
+Caused by: org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:276)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:221)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:189)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:171)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1431)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1502)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802)
+	... 15 common frames omitted
+Caused by: org.hibernate.HibernateException: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
+	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.determineDialect(DialectFactoryImpl.java:191)
+	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.buildDialect(DialectFactoryImpl.java:87)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentWithDefaults(JdbcEnvironmentInitiator.java:152)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:362)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:123)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:77)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	... 30 common frames omitted
+[2024-07-23 21:57:56:698][INFO ][main][o.l.m.MedicApiApplication.logStarting] - Starting MedicApiApplication using Java 17.0.2 with PID 59239 (/Users/2dongyeop/kmong/medic-api/build/classes/java/main started by 2dongyeop in /Users/2dongyeop/kmong/medic-api)
+[2024-07-23 21:57:56:702][INFO ][main][o.l.m.MedicApiApplication.logStartupProfileInfo] - No active profile set, falling back to 1 default profile: "default"
+[2024-07-23 21:57:57:1651][INFO ][main][o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2024-07-23 21:57:57:1667][INFO ][main][o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn] - Finished Spring Data repository scanning in 11 ms. Found 0 JPA repository interfaces.
+[2024-07-23 21:57:58:2164][INFO ][main][o.s.b.w.e.t.TomcatWebServer.initialize] - Tomcat initialized with port 8001 (http)
+[2024-07-23 21:57:58:2171][INFO ][main][o.a.c.c.StandardService.log] - Starting service [Tomcat]
+[2024-07-23 21:57:58:2172][INFO ][main][o.a.c.c.StandardEngine.log] - Starting Servlet engine: [Apache Tomcat/10.1.26]
+[2024-07-23 21:57:58:2221][INFO ][main][o.a.c.c.C.[.[.[/].log] - Initializing Spring embedded WebApplicationContext
+[2024-07-23 21:57:58:2221][INFO ][main][o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext] - Root WebApplicationContext: initialization completed in 1461 ms
+[2024-07-23 21:57:58:2349][INFO ][main][o.h.j.i.u.LogHelper.logPersistenceUnitInformation] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[2024-07-23 21:57:58:2390][INFO ][main][o.hibernate.Version.logVersion] - HHH000412: Hibernate ORM core version 6.5.2.Final
+[2024-07-23 21:57:58:2411][INFO ][main][o.h.c.i.RegionFactoryInitiator.initiateService] - HHH000026: Second-level cache disabled
+[2024-07-23 21:57:58:2652][INFO ][main][o.s.o.j.p.SpringPersistenceUnitInfo.addTransformer] - No LoadTimeWeaver setup: ignoring JPA class transformer
+[2024-07-23 21:57:58:2673][INFO ][main][c.z.h.HikariDataSource.getConnection] - HikariPool-1 - Starting...
+[2024-07-23 21:57:59:3758][WARN ][main][o.h.e.j.e.i.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata] - HHH000342: Could not obtain connection to query metadata
+java.lang.NullPointerException: Cannot invoke "org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(java.sql.SQLException, String)" because the return value of "org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.sqlExceptionHelper()" is null
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:116)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:290)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:123)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:77)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:221)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:189)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:171)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1431)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1502)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:954)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at org.lion.medicapi.MedicApiApplication.main(MedicApiApplication.java:10)
+[2024-07-23 21:57:59:3798][WARN ][main][o.h.orm.deprecation.constructDialect] - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-07-23 21:58:00:4007][INFO ][main][o.h.e.t.j.p.i.JtaPlatformInitiator.initiateService] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2024-07-23 21:58:00:4011][INFO ][main][o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2024-07-23 21:58:00:4180][WARN ][main][o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2024-07-23 21:58:00:4587][WARN ][main][o.s.b.a.s.s.UserDetailsServiceAutoConfiguration.getOrDeducePassword] - 
+
+Using generated security password: f8bda422-d424-4681-954a-66d1f872705a
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+[2024-07-23 21:58:00:4607][INFO ][main][o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer.configure] - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+[2024-07-23 21:58:00:4735][INFO ][main][o.s.b.w.e.t.TomcatWebServer.start] - Tomcat started on port 8001 (http) with context path '/'
+[2024-07-23 21:58:00:4750][INFO ][main][o.l.m.MedicApiApplication.logStarted] - Started MedicApiApplication in 4.592 seconds (process running for 5.207)
+[2024-07-23 21:59:20:84379][INFO ][SpringApplicationShutdownHook][o.s.o.j.LocalContainerEntityManagerFactoryBean.destroy] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[2024-07-23 21:59:23:662][INFO ][main][o.l.m.MedicApiApplication.logStarting] - Starting MedicApiApplication using Java 17.0.2 with PID 59351 (/Users/2dongyeop/kmong/medic-api/build/classes/java/main started by 2dongyeop in /Users/2dongyeop/kmong/medic-api)
+[2024-07-23 21:59:23:668][INFO ][main][o.l.m.MedicApiApplication.logStartupProfileInfo] - No active profile set, falling back to 1 default profile: "default"
+[2024-07-23 21:59:24:1518][INFO ][main][o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2024-07-23 21:59:24:1533][INFO ][main][o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn] - Finished Spring Data repository scanning in 10 ms. Found 0 JPA repository interfaces.
+[2024-07-23 21:59:24:2021][INFO ][main][o.s.b.w.e.t.TomcatWebServer.initialize] - Tomcat initialized with port 8001 (http)
+[2024-07-23 21:59:25:2030][INFO ][main][o.a.c.c.StandardService.log] - Starting service [Tomcat]
+[2024-07-23 21:59:25:2031][INFO ][main][o.a.c.c.StandardEngine.log] - Starting Servlet engine: [Apache Tomcat/10.1.26]
+[2024-07-23 21:59:25:2078][INFO ][main][o.a.c.c.C.[.[.[/].log] - Initializing Spring embedded WebApplicationContext
+[2024-07-23 21:59:25:2078][INFO ][main][o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext] - Root WebApplicationContext: initialization completed in 1358 ms
+[2024-07-23 21:59:25:2193][INFO ][main][o.h.j.i.u.LogHelper.logPersistenceUnitInformation] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[2024-07-23 21:59:25:2229][INFO ][main][o.hibernate.Version.logVersion] - HHH000412: Hibernate ORM core version 6.5.2.Final
+[2024-07-23 21:59:25:2251][INFO ][main][o.h.c.i.RegionFactoryInitiator.initiateService] - HHH000026: Second-level cache disabled
+[2024-07-23 21:59:25:2495][INFO ][main][o.s.o.j.p.SpringPersistenceUnitInfo.addTransformer] - No LoadTimeWeaver setup: ignoring JPA class transformer
+[2024-07-23 21:59:25:2513][INFO ][main][c.z.h.HikariDataSource.getConnection] - HikariPool-1 - Starting...
+[2024-07-23 21:59:26:3627][WARN ][main][o.h.e.j.e.i.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata] - HHH000342: Could not obtain connection to query metadata
+java.lang.NullPointerException: Cannot invoke "org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(java.sql.SQLException, String)" because the return value of "org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.sqlExceptionHelper()" is null
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:116)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:290)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:123)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:77)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:221)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:189)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:171)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1431)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1502)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:954)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at org.lion.medicapi.MedicApiApplication.main(MedicApiApplication.java:10)
+[2024-07-23 21:59:26:3671][WARN ][main][o.h.orm.deprecation.constructDialect] - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-07-23 21:59:26:3884][INFO ][main][o.h.e.t.j.p.i.JtaPlatformInitiator.initiateService] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2024-07-23 21:59:26:3888][INFO ][main][o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2024-07-23 21:59:27:4040][WARN ][main][o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2024-07-23 21:59:27:4442][WARN ][main][o.s.b.a.s.s.UserDetailsServiceAutoConfiguration.getOrDeducePassword] - 
+
+Using generated security password: 71f125ca-e770-4568-9672-047be21f0218
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+[2024-07-23 21:59:27:4464][INFO ][main][o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer.configure] - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+[2024-07-23 21:59:27:4590][INFO ][main][o.s.b.w.e.t.TomcatWebServer.start] - Tomcat started on port 8001 (http) with context path '/'
+[2024-07-23 21:59:27:4605][INFO ][main][o.l.m.MedicApiApplication.logStarted] - Started MedicApiApplication in 4.447 seconds (process running for 5.007)
+[2024-07-23 22:05:05:342465][INFO ][SpringApplicationShutdownHook][o.s.o.j.LocalContainerEntityManagerFactoryBean.destroy] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[2024-07-23 22:05:08:706][INFO ][main][o.l.m.MedicApiApplication.logStarting] - Starting MedicApiApplication using Java 17.0.2 with PID 59875 (/Users/2dongyeop/kmong/medic-api/build/classes/java/main started by 2dongyeop in /Users/2dongyeop/kmong/medic-api)
+[2024-07-23 22:05:08:716][INFO ][main][o.l.m.MedicApiApplication.logStartupProfileInfo] - No active profile set, falling back to 1 default profile: "default"
+[2024-07-23 22:05:09:1627][INFO ][main][o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2024-07-23 22:05:09:1642][INFO ][main][o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn] - Finished Spring Data repository scanning in 10 ms. Found 0 JPA repository interfaces.
+[2024-07-23 22:05:10:2152][INFO ][main][o.s.b.w.e.t.TomcatWebServer.initialize] - Tomcat initialized with port 8001 (http)
+[2024-07-23 22:05:10:2159][INFO ][main][o.a.c.c.StandardService.log] - Starting service [Tomcat]
+[2024-07-23 22:05:10:2159][INFO ][main][o.a.c.c.StandardEngine.log] - Starting Servlet engine: [Apache Tomcat/10.1.26]
+[2024-07-23 22:05:10:2207][INFO ][main][o.a.c.c.C.[.[.[/].log] - Initializing Spring embedded WebApplicationContext
+[2024-07-23 22:05:10:2207][INFO ][main][o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext] - Root WebApplicationContext: initialization completed in 1432 ms
+[2024-07-23 22:05:10:2337][INFO ][main][o.h.j.i.u.LogHelper.logPersistenceUnitInformation] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[2024-07-23 22:05:10:2371][INFO ][main][o.hibernate.Version.logVersion] - HHH000412: Hibernate ORM core version 6.5.2.Final
+[2024-07-23 22:05:10:2392][INFO ][main][o.h.c.i.RegionFactoryInitiator.initiateService] - HHH000026: Second-level cache disabled
+[2024-07-23 22:05:10:2634][INFO ][main][o.s.o.j.p.SpringPersistenceUnitInfo.addTransformer] - No LoadTimeWeaver setup: ignoring JPA class transformer
+[2024-07-23 22:05:10:2656][INFO ][main][c.z.h.HikariDataSource.getConnection] - HikariPool-1 - Starting...
+[2024-07-23 22:05:11:2974][INFO ][main][c.z.h.p.HikariPool.checkFailFast] - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@57b1ec84
+[2024-07-23 22:05:11:2976][INFO ][main][c.z.h.HikariDataSource.getConnection] - HikariPool-1 - Start completed.
+[2024-07-23 22:05:11:3066][WARN ][main][o.h.orm.deprecation.constructDialect] - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2024-07-23 22:05:11:3287][INFO ][main][o.h.e.t.j.p.i.JtaPlatformInitiator.initiateService] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2024-07-23 22:05:11:3291][INFO ][main][o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2024-07-23 22:05:11:3438][WARN ][main][o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2024-07-23 22:05:12:3847][WARN ][main][o.s.b.a.s.s.UserDetailsServiceAutoConfiguration.getOrDeducePassword] - 
+
+Using generated security password: 16d7b6c5-2764-4da5-aba4-9728c10ce098
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+[2024-07-23 22:05:12:3871][INFO ][main][o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer.configure] - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+[2024-07-23 22:05:12:4020][INFO ][main][o.s.b.w.e.t.TomcatWebServer.start] - Tomcat started on port 8001 (http) with context path '/'
+[2024-07-23 22:05:12:4038][INFO ][main][o.l.m.MedicApiApplication.logStarted] - Started MedicApiApplication in 3.863 seconds (process running for 4.546)
+[2024-07-23 22:05:14:6269][INFO ][SpringApplicationShutdownHook][o.s.o.j.LocalContainerEntityManagerFactoryBean.destroy] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[2024-07-23 22:05:14:6271][INFO ][SpringApplicationShutdownHook][c.z.h.HikariDataSource.close] - HikariPool-1 - Shutdown initiated...
+[2024-07-23 22:05:14:6278][INFO ][SpringApplicationShutdownHook][c.z.h.HikariDataSource.close] - HikariPool-1 - Shutdown completed.
