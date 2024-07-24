@@ -3,13 +3,18 @@ package org.lion.medicapi.service;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.lion.medicapi.domain.User;
+import org.lion.medicapi.domain.UserHealthTag;
 import org.lion.medicapi.dto.request.SignUpRequest;
 import org.lion.medicapi.exception.APIException;
+import org.lion.medicapi.repository.UserHealthTagRepository;
 import org.lion.medicapi.repository.UserRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Slf4j
 @Service
@@ -19,6 +24,7 @@ public class AuthService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final UserHealthTagRepository userHealthTagRepository;
 
     @Transactional
     public User signIn(final SignUpRequest request) {
@@ -33,9 +39,19 @@ public class AuthService {
                 .nickName(request.getNickName())
                 .birthDt(request.getBirthDt())
                 .sexType(request.getSexType())
-                .healthTagList(request.getHealthTagList())
                 .build();
 
-        return userRepository.save(user);
+        final List<UserHealthTag> userHealthTagList = new ArrayList<>();
+        request.getHealthTagList()
+                .forEach(healthTag -> {
+                    final UserHealthTag userHealthTag = new UserHealthTag(healthTag, user);
+                    userHealthTagList.add(userHealthTag);
+                });
+
+        user.setUserHealthTagList(userHealthTagList);
+        final User savedUser = userRepository.save(user);
+
+        userHealthTagRepository.saveAll(userHealthTagList);
+        return savedUser;
     }
 }

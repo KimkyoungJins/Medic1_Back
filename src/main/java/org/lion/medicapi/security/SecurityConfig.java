@@ -50,8 +50,8 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(request -> request
-                        .requestMatchers(new AntPathRequestMatcher("/api/signin")).permitAll()
-                        .requestMatchers(new AntPathRequestMatcher("/api/login")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/medic/api/auth/signin")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/medic/api/auth/login")).permitAll()
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(new JWTFilter(tokenProvider), UsernamePasswordAuthenticationFilter.class)

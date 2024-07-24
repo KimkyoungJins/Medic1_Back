@@ -1,14 +1,17 @@
 package org.lion.medicapi.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 import org.lion.medicapi.util.SexType;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Getter
+@Setter
 @Builder
 @ToString
 @NoArgsConstructor
@@ -22,15 +25,16 @@ public class User {
 
     private String email;
 
-    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private String password;
 
     private String nickName;
 
     private String birthDt;
 
+    @Enumerated(value = EnumType.STRING)
     private SexType sexType;
 
-    @OneToMany
-    private List<HealthTag> healthTagList;
+    @Builder.Default
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<UserHealthTag> userHealthTagList = new ArrayList<>();
 }

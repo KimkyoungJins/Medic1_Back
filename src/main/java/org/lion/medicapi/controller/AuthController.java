@@ -4,6 +4,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.lion.medicapi.dto.request.SignUpRequest;
+import org.lion.medicapi.dto.response.SignUpResponse;
 import org.lion.medicapi.service.AuthService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,6 +24,6 @@ public class AuthController {
     public ResponseEntity<?> signIn(@RequestBody @Valid final SignUpRequest request) {
         log.debug("request[{}]", request);
 
-        return ResponseEntity.ok(authService.signIn(request));
+        return ResponseEntity.ok(SignUpResponse.of(authService.signIn(request)));
     }
 }
