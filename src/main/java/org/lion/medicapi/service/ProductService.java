@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Slf4j
@@ -27,7 +28,7 @@ public class ProductService {
     private final ProductRepository productRepository;
     private final UserHealthTagRepository userHealthTagRepository;
 
-    public List<Product> getRecommendProduct(final User principal) {
+    public List<Product> getRecommendProducts(final User principal) {
         final User user = userRepository.findByEmail(principal.getEmail())
                 .orElseThrow(() -> new APIException("유저를 찾을 수 없습니다.", HttpStatus.NOT_FOUND));
         log.info("user[{}]", user);
@@ -46,5 +47,12 @@ public class ProductService {
         });
 
         return result;
+    }
+
+    public List<Product> getBestProducts() {
+        final List<Product> products = productRepository.findAll();
+        Collections.shuffle(products);
+
+        return products.stream().limit(3).toList();
     }
 }

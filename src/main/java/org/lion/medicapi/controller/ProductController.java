@@ -24,9 +24,19 @@ public class ProductController {
      * 로그인하지 않았을 경우에는, 해당 페이지에 랜덤 추천 상품 조회를 호출 <br/>
      */
     @GetMapping("/recommend")
-    public ResponseEntity<?> getRecommendProduct() {
+    public ResponseEntity<?> getRecommendProducts() {
         final User user = AuthenticationUtils.getUser();
 
-        return ResponseEntity.ok(productService.getRecommendProduct(user));
+        return ResponseEntity.ok(productService.getRecommendProducts(user));
+    }
+
+    /**
+     * BEST 추천 상품 목록 조회 -> 우선은 랜덤으로 처리 <br/>
+     * 로그인하지 않아도 호출할 수 있는 API. <br/>
+     * 따라서, 로그인하지 않았을 경우 메인페이지 중간에서도 이 API로 대체
+     */
+    @GetMapping("/best")
+    public ResponseEntity<?> getBestProducts() {
+        return ResponseEntity.ok(productService.getBestProducts());
     }
 }

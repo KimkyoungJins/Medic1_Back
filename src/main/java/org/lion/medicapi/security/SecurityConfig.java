@@ -52,6 +52,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(request -> request
                         .requestMatchers(new AntPathRequestMatcher("/medic/api/auth/signin")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/medic/api/auth/login")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/medic/api/product/best")).permitAll()
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(new JWTFilter(tokenProvider), UsernamePasswordAuthenticationFilter.class)
