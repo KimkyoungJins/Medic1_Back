@@ -25,21 +25,19 @@ public class TokenProvider {
     /**
      * JWT 생성 메서드
      */
-    public String createAccessToken(final User user, final String username) {
-        log.debug("user[{}], username[{}]", user, username);
+    public String createAccessToken(final User user) {
 
         final Date now = new Date();
         final Date validity = new Date(now.getTime() + expiredMillySeconds);
 
         final Map<String, Object> claim = new HashMap<>();
-//        claim.put(USER_ID, user.getId());
-//        claim.put(AUTHORITIES, user.getAuthorities());
-//        claim.put(NAME, user.getName());
-//        claim.put(COUNTRY_CODE, user.getCountryCode());
+        claim.put("userId", user.getId());
+
+        String subject = user.getEmail();
 
         return Jwts.builder()
                 .setId(UUID.randomUUID().toString())
-                .setSubject(username).setIssuedAt(now)
+                .setSubject(subject).setIssuedAt(now)
                 .addClaims(claim)
                 .signWith(SignatureAlgorithm.HS512, secretKey)
                 .setExpiration(validity)
@@ -59,25 +57,15 @@ public class TokenProvider {
                 .parseClaimsJws(token)
                 .getBody();
 
-        final String username = body.getSubject();
-//        final long userId = ((Number) (body.get(USER_ID))).longValue();
-//        final String name = (String) body.get(NAME);
-//        log.debug("username[{}], userId[{}], name[{}]", username, userId, name);
+        final String email = body.getSubject();
+        final Long userId = ((Number) (body.get("userId"))).longValue();
 
-//        final List<Map<String, Object>> authorities = (List<Map<String, Object>>) body.get(AUTHORITIES);
-//        final CountryCode countryCode = CountryCode.valueOf(body.get(COUNTRY_CODE) == null
-//                ? COUNTRY_CODE_KOR
-//                : (String) body.get(COUNTRY_CODE));
+        final User user = User.builder()
+                .id(userId)
+                .email(email)
+                .build();
 
-//        final Doctor doctor = Doctor.builder()
-//                .id(userId)
-//                .username(username)
-//                .name(name)
-//                .countryCode(countryCode)
-//                .build();
-        // TODO : CREATE USER
-
-        return new UsernamePasswordAuthenticationToken(new User(), "",
+        return new UsernamePasswordAuthenticationToken(user, "",
                 AuthorityUtils.createAuthorityList());
     }
 }

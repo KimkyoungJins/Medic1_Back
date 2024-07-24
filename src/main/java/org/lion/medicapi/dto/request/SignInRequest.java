@@ -8,14 +8,14 @@ import org.lion.medicapi.util.SexType;
 import java.util.List;
 
 @Data
-public class SignUpRequest {
+public class SignInRequest {
 
     @Email
     private String email;
 
     @NotBlank
     @Pattern(regexp = "(?=.*[0-9])(?=.*[a-zA-Z])(?=\\S+$).{1,8}",
-            message = "비밀번호는 영문과 숫자가 포함된 4자 ~ 20자의 비밀번호여야 합니다.")
+            message = "비밀번호는 영문과 숫자가 포함된 1자 ~ 8자의 비밀번호여야 합니다.")
     private String password;
 
     @NotBlank

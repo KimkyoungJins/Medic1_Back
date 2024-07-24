@@ -10,8 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Data
-public class SignUpResponse {
-
+public class LoginResponse {
     private Long id;
     private String email;
     private String nickName;
@@ -19,8 +18,10 @@ public class SignUpResponse {
     private SexType sexType;
     private List<HealthTag> healthTagList = new ArrayList<>();
 
-    public static SignUpResponse of(User user) {
-        SignUpResponse response = new SignUpResponse();
+    private String accessToken;
+
+    public static LoginResponse of(User user, String accessToken) {
+        LoginResponse response = new LoginResponse();
 
         response.id = user.getId();
         response.email = user.getEmail();
@@ -28,6 +29,8 @@ public class SignUpResponse {
         response.birthDt = user.getBirthDt();
         response.sexType = user.getSexType();
         response.healthTagList = user.getUserHealthTagList().stream().map(UserHealthTag::getHealthTag).toList();
+
+        response.accessToken = accessToken;
 
         return response;
     }
