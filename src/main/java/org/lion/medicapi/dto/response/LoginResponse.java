@@ -1,7 +1,7 @@
 package org.lion.medicapi.dto.response;
 
 import lombok.Data;
-import org.lion.medicapi.domain.HealthTag;
+import org.lion.medicapi.util.HealthTag;
 import org.lion.medicapi.domain.User;
 import org.lion.medicapi.domain.UserHealthTag;
 import org.lion.medicapi.util.SexType;

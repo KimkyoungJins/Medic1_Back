@@ -1,4 +1,4 @@
-package org.lion.medicapi.domain;
+package org.lion.medicapi.util;
 
 import lombok.Getter;
 

@@ -2,10 +2,10 @@ package org.lion.medicapi.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.lion.medicapi.domain.HealthTag;
+import org.lion.medicapi.util.HealthTag;
 import org.lion.medicapi.domain.User;
 import org.lion.medicapi.domain.UserHealthTag;
-import org.lion.medicapi.dto.request.UpdateHealthTagRequest;
+import org.lion.medicapi.dto.request.TagRequest;
 import org.lion.medicapi.exception.APIException;
 import org.lion.medicapi.repository.UserHealthTagRepository;
 import org.lion.medicapi.repository.UserRepository;
@@ -38,7 +38,7 @@ public class UserHealthTagService {
     }
 
     @Transactional
-    public List<HealthTag> updateHealthTag(final User principal, final UpdateHealthTagRequest request) {
+    public List<HealthTag> updateHealthTag(final User principal, final TagRequest request) {
         final List<HealthTag> healthTagList = request.getHealthTagList();
         final User user = userRepository.findByEmail(principal.getEmail()).get();
 

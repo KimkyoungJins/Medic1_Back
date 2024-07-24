@@ -2,7 +2,7 @@ package org.lion.medicapi.dto.request;
 
 import jakarta.validation.constraints.*;
 import lombok.Data;
-import org.lion.medicapi.domain.HealthTag;
+import org.lion.medicapi.util.HealthTag;
 import org.lion.medicapi.util.SexType;
 
 import java.util.List;
