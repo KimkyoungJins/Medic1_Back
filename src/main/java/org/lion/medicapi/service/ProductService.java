@@ -66,4 +66,10 @@ public class ProductService {
 
         return productRepository.findAll(pageable);
     }
+
+    public Product getProductDetails(Long productId) {
+        return productRepository.findById(productId).orElseThrow(() -> {
+            throw new APIException("해당 ID의 상품은 존재하지 않습니다.", HttpStatus.NOT_FOUND);
+        });
+    }
 }

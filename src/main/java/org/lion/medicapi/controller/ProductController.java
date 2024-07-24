@@ -7,10 +7,7 @@ import org.lion.medicapi.service.ProductService;
 import org.lion.medicapi.util.AuthenticationUtils;
 import org.lion.medicapi.util.ProductSort;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
@@ -46,6 +43,13 @@ public class ProductController {
     public ResponseEntity<?> getProducts(@RequestParam final ProductSort sort,
                                          @RequestParam(defaultValue = "0") final int pageNum,
                                          @RequestParam(defaultValue = "12") final int pageSize) {
+        log.info("sort[{}]", sort);
         return ResponseEntity.ok(productService.getProducts(sort, pageNum, pageSize));
+    }
+
+    @GetMapping("/{productId}")
+    public ResponseEntity<?> getProductDetails(@PathVariable final Long productId) {
+        log.info("productId[{}]", productId);
+        return ResponseEntity.ok(productService.getProductDetails(productId));
     }
 }
