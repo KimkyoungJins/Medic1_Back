@@ -5,9 +5,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.lion.medicapi.domain.User;
 import org.lion.medicapi.service.ProductService;
 import org.lion.medicapi.util.AuthenticationUtils;
+import org.lion.medicapi.util.ProductSort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
@@ -38,5 +40,12 @@ public class ProductController {
     @GetMapping("/best")
     public ResponseEntity<?> getBestProducts() {
         return ResponseEntity.ok(productService.getBestProducts());
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity<?> getProducts(@RequestParam final ProductSort sort,
+                                         @RequestParam(defaultValue = "0") final int pageNum,
+                                         @RequestParam(defaultValue = "12") final int pageSize) {
+        return ResponseEntity.ok(productService.getProducts(sort, pageNum, pageSize));
     }
 }

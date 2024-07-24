@@ -10,6 +10,10 @@ import org.lion.medicapi.repository.ProductRepository;
 import org.lion.medicapi.repository.UserHealthTagRepository;
 import org.lion.medicapi.repository.UserRepository;
 import org.lion.medicapi.util.HealthTag;
+import org.lion.medicapi.util.ProductSort;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -54,5 +58,12 @@ public class ProductService {
         Collections.shuffle(products);
 
         return products.stream().limit(3).toList();
+    }
+
+    public Page<Product> getProducts(final ProductSort sort, int pageNum, int pageSize) {
+        final Pageable pageable = PageRequest.of(pageNum, pageSize);
+        // TODO : 정렬 기준 다시 보기
+
+        return productRepository.findAll(pageable);
     }
 }
