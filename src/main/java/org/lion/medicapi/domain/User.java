@@ -1,7 +1,5 @@
 package org.lion.medicapi.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 import org.lion.medicapi.util.SexType;
