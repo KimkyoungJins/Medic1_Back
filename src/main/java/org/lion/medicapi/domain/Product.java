@@ -33,6 +33,6 @@ public class Product {
     private String functionallyContents; // 기능성 내용
     private String otherMaterials; // 기타 원료
 
-    @OneToMany
+    @OneToMany(mappedBy = "product")
     private List<Review> reviewList = new ArrayList<>();
 }

@@ -19,6 +19,14 @@ public class Review {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String starPoint;    // 별점
+    private String purchaseDate; // 제품 구매일
+    private String reviewDate;   // 후기 작성일
+    private Integer ageGroup;    // 나이대 (10, 20, 30 ... 대)
+
+    @OneToMany(mappedBy = "review")
+    private List<Like> likeList = new ArrayList<>();
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
@@ -26,15 +34,6 @@ public class Review {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id")
     private Product product;
-
-    private String starPoint; // 별점
-    private String purchaseDate; // 제품 구매일
-    private String reviewDate; // 후기 작성일
-
-    private Integer ageGroup; // 나이대 (10, 20, 30 ... 대)
-
-    @OneToMany
-    private List<Like> likeList = new ArrayList<>();
 
     /**
      * 생년월일 입력시, 나이대가 계산되어 세팅되는 메서드 <br/>

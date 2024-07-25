@@ -9,7 +9,7 @@ spring:
         format_sql: false
         show_sql: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: none # 이미 DB 스키마는 생성하였음. 이후 변경 시에는 DDL로 직접 작성
 
   datasource:
     url: jdbc:mysql://52.78.188.110:3306/medic?allowPublicKeyRetrieval=true&useSSL=false
