@@ -40,11 +40,9 @@ public class ProductController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<?> getProducts(@RequestParam final ProductSort sort,
-                                         @RequestParam(defaultValue = "0") final int pageNum,
-                                         @RequestParam(defaultValue = "12") final int pageSize) {
+    public ResponseEntity<?> getProducts(@RequestParam final ProductSort sort) {
         log.info("sort[{}]", sort);
-        return ResponseEntity.ok(productService.getProducts(sort, pageNum, pageSize));
+        return ResponseEntity.ok(productService.getProducts(sort));
     }
 
     @GetMapping("/{productId}")

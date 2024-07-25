@@ -11,15 +11,13 @@ import org.lion.medicapi.repository.UserHealthTagRepository;
 import org.lion.medicapi.repository.UserRepository;
 import org.lion.medicapi.util.HealthTag;
 import org.lion.medicapi.util.ProductSort;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 @Slf4j
@@ -60,11 +58,16 @@ public class ProductService {
         return products.stream().limit(3).toList();
     }
 
-    public Page<Product> getProducts(final ProductSort sort, int pageNum, int pageSize) {
-        final Pageable pageable = PageRequest.of(pageNum, pageSize);
-        // TODO : 정렬 기준 다시 보기
+    public List<Product> getProducts(final ProductSort sort) {
+        final List<Product> productList = productRepository.findAll();
 
-        return productRepository.findAll(pageable);
+        switch (sort) {
+            case REVIEW -> productList.sort(Comparator.comparing(product -> product.getReviewList().size()));
+            case LOW_PRICE -> productList.sort(Comparator.comparing(Product::getNormalPrice));
+            case HIGH_PRICE -> productList.sort(Comparator.comparing(Product::getNormalPrice).reversed());
+        }
+
+        return productList;
     }
 
     public Product getProductDetails(Long productId) {
