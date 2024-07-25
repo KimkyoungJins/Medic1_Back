@@ -3,6 +3,7 @@ package org.lion.medicapi.domain;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import org.lion.medicapi.util.HealthTag;
 
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+@ToString(exclude = {"reviewList"})
 public class Product {
 
     @Id

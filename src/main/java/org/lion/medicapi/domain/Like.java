@@ -7,7 +7,6 @@ import lombok.*;
 @Getter
 @Setter
 @Builder
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "likes")
@@ -28,5 +27,14 @@ public class Like {
     public void setReview(Review review) {
         this.review = review;
         review.getLikeList().add(this);
+    }
+
+    @Override
+    public String toString() {
+        return "Like{" +
+                "id=" + id +
+                ", reviewId=" + review.getId() +
+                ", userId=" + user.getId() +
+                '}';
     }
 }

@@ -11,7 +11,7 @@ import java.util.List;
 @Getter
 @Setter
 @Builder
-@ToString
+@ToString(exclude = {"userHealthTagList"})
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "users")

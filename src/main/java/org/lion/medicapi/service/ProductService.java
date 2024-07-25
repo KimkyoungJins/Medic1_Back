@@ -60,6 +60,7 @@ public class ProductService {
 
     public List<Product> getProducts(final ProductSort sort) {
         final List<Product> productList = productRepository.findAll();
+        log.info("productList[{}]", productList);
 
         switch (sort) {
             case REVIEW -> productList.sort(Comparator.comparing(product -> product.getReviewList().size()));
@@ -71,8 +72,6 @@ public class ProductService {
     }
 
     public Product getProductDetails(Long productId) {
-        return productRepository.findById(productId).orElseThrow(() -> {
-            throw new APIException("해당 ID의 상품은 존재하지 않습니다.", HttpStatus.NOT_FOUND);
-        });
+        return productRepository.findById(productId).orElseThrow(() -> new APIException("해당 ID의 상품은 존재하지 않습니다.", HttpStatus.NOT_FOUND));
     }
 }

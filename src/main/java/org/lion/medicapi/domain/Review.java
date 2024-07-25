@@ -3,6 +3,7 @@ package org.lion.medicapi.domain;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 
 import java.time.LocalDateTime;
@@ -13,6 +14,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+@ToString(exclude = {"likeList", "user", "product"})
 public class Review {
 
     @Id
@@ -51,7 +53,6 @@ public class Review {
         } else {
             age = year - birthYear + 1;
         }
-        System.out.println("age = " + age);
 
         this.ageGroup = (age / 10) * 10;
     }
