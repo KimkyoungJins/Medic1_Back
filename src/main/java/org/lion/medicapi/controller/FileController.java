@@ -7,9 +7,7 @@ import org.lion.medicapi.service.FileService;
 import org.lion.medicapi.util.ImageType;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 @Slf4j
@@ -30,5 +28,11 @@ public class FileController {
         }
 
         return ResponseEntity.ok(fileService.saveFile(file, ImageType.PRODUCT));
+    }
+
+    @GetMapping
+    public ResponseEntity<?> getFile(@RequestParam final Long fileId) {
+        log.info("fileId[{}]", fileId);
+        return ResponseEntity.ok(fileService.getFile(fileId));
     }
 }

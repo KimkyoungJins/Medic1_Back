@@ -3,15 +3,19 @@ package org.lion.medicapi.service;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.lion.medicapi.domain.FileInfo;
+import org.lion.medicapi.exception.APIException;
 import org.lion.medicapi.repository.FileRepository;
 import org.lion.medicapi.util.ImageType;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.UrlResource;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -29,6 +33,21 @@ public class FileService {
     private static final String DIRECTORY_REVIEW = "/review";
     private static final String DIRECTORY_PROIFLE = "/profile";
 
+    public Object getFile(Long fileId) {
+        final FileInfo fileInfo = fileRepository.findById(fileId).orElseThrow(() -> new APIException("file not found", HttpStatus.BAD_REQUEST));
+
+        final String fileName = fileInfo.getFileName();
+        final String fileUrl = fileInfo.getFileUrl();
+        final String fileExt = fileInfo.getFileExt();
+        final String targetFile = ROOT_PATH + fileUrl + "/" + fileName + "." + fileExt;
+
+        try {
+            return new UrlResource("file:" + targetFile);
+        } catch (MalformedURLException e) {
+            log.error("file not found", e);
+            throw new APIException("file not found", HttpStatus.BAD_REQUEST);
+        }
+    }
 
     @Transactional
     public FileInfo saveFile(MultipartFile multipartFile, ImageType imageType) {
@@ -78,8 +97,8 @@ public class FileService {
             directory.mkdirs(); // 디렉터리 생성
         }
     }
-
     // 확장자 추출
+
     private String extractExt(String originalFilename) {
         final int pos = originalFilename.lastIndexOf(".");
         return originalFilename.substring(pos + 1);
