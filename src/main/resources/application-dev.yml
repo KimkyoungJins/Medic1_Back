@@ -17,6 +17,13 @@ spring:
     username: medic
     password: medic123!
 
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 30MB    # default : 1MB
+      max-request-size: 30MB # default : 10MB
+      location: ~/images
+
 cors:
   mapping: "/**"
   methods: GET, PATCH, DELETE, POST, OPTIONS, PUT

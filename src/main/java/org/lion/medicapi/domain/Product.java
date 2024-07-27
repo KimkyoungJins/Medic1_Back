@@ -35,6 +35,10 @@ public class Product {
     private String functionallyContents; // 기능성 내용
     private String otherMaterials; // 기타 원료
 
+    @OneToOne
+    @JoinColumn(name = "file_info_id")
+    private FileInfo fileInfo;
+
     @OneToMany(mappedBy = "product")
     private List<Review> reviewList = new ArrayList<>();
 }

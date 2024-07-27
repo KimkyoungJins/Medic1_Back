@@ -21,7 +21,7 @@ public class Review {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String starPoint;    // 별점
+    private Double starPoint;    // 별점
     private String purchaseDate; // 제품 구매일
     private String reviewDate;   // 후기 작성일
     private Integer ageGroup;    // 나이대 (10, 20, 30 ... 대)

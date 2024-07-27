@@ -2,6 +2,7 @@ server:
   port: 8001
 
 spring:
+
   jpa:
     properties:
       hibernate:
@@ -9,13 +10,20 @@ spring:
         format_sql: false
         show_sql: true
     hibernate:
-      ddl-auto: none # ?? DB ???? ?????. ?? ?? ??? DDL? ?? ??
+      ddl-auto: none # must be none -> Protected Product Data
 
   datasource:
     url: jdbc:mysql://52.78.188.110:3306/medic?allowPublicKeyRetrieval=true&useSSL=false
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: medic
     password: medic123!
+
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 30MB    # default : 1MB
+      max-request-size: 30MB # default : 10MB
+      location: ./images
 
 cors:
   mapping: "/**"
@@ -26,7 +34,7 @@ cors:
 jwt:
   access:
     secret-key: medic-jwt-secret
-    expired-milly-seconds: 86400000 # ??(24??)
+    expired-milly-seconds: 86400000 # 24 hour
 
 
 logging:
