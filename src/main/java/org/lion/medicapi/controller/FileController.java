@@ -10,6 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
+
 @Slf4j
 @RestController
 @RequiredArgsConstructor
@@ -19,15 +21,9 @@ public class FileController {
     private final FileService fileService;
 
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<FileInfo> saveFile(final MultipartFile file) {
-        if (file.getOriginalFilename() != null) {
-            log.info("fileName[{}]", file.getOriginalFilename());
-        }
-        if (file.getContentType() != null) {
-            log.info("fileContentType[{}]", file.getContentType());
-        }
-
-        return ResponseEntity.ok(fileService.saveFile(file, ImageType.PRODUCT));
+    public ResponseEntity<List<FileInfo>> saveFile(final List<MultipartFile> files) {
+        log.info("files size[{}]", files.size());
+        return ResponseEntity.ok(fileService.saveFile(files, ImageType.PRODUCT));
     }
 
     @GetMapping("/v1")

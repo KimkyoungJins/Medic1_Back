@@ -24,7 +24,7 @@ spring:
       max-request-size: 30MB # default : 10MB
 
 path:
-  images: ~/images
+  image: /home/ubuntu/images
 
 cors:
   mapping: "/**"
@@ -43,7 +43,7 @@ logging:
     file: "[%d{yyyy-MM-dd HH:mm:ss}:%-3relative][%-5p][%thread][%logger{20}.%method] - %msg%n"
 
   file:
-    name: ~/logs/medic.log
+    name: /home/ubuntu/logs/medic.log
 
   logback:
     rollingpolicy:

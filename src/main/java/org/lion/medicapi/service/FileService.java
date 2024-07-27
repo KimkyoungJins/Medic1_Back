@@ -18,6 +18,8 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -58,34 +60,41 @@ public class FileService {
     }
 
     @Transactional
-    public FileInfo saveFile(MultipartFile multipartFile, ImageType imageType) {
+    public List<FileInfo> saveFile(List<MultipartFile> files, ImageType imageType) {
 
-        if (multipartFile.isEmpty()) {
+        if (files.isEmpty()) {
             return null;
         }
 
-        final String randomFileName = UUID.randomUUID().toString();
         final String directoryName = switch (imageType) {
             case REVIEW -> DIRECTORY_REVIEW;
             case USER_PROFILE -> DIRECTORY_PROIFLE;
             case PRODUCT -> DIRECTORY_PRODUCT;
         };
-        final String fileExt = FileUtils.extractExt(Objects.requireNonNull(multipartFile.getOriginalFilename()));
 
-        final FileInfo fileInfo = FileInfo.builder()
-                .fileName(randomFileName)
-                .fileOriName(multipartFile.getOriginalFilename())
-                .fileUrl(directoryName)
-                .fileExt(fileExt)
-                .fileSize(multipartFile.getSize())
-                .build();
-        log.info("fileInfo[{}]", fileInfo);
+        List<FileInfo> result = new ArrayList<>();
 
-        // Image Save To Server
-        saveImage(multipartFile, directoryName, randomFileName, fileExt);
+        for (MultipartFile multipartFile : files) {
+            final String randomFileName = UUID.randomUUID().toString();
+            final String fileExt = FileUtils.extractExt(Objects.requireNonNull(multipartFile.getOriginalFilename()));
 
-        // DB save
-        return fileRepository.save(fileInfo);
+            final FileInfo fileInfo = FileInfo.builder()
+                    .fileName(randomFileName)
+                    .fileOriName(multipartFile.getOriginalFilename())
+                    .fileUrl(directoryName)
+                    .fileExt(fileExt)
+                    .fileSize(multipartFile.getSize())
+                    .build();
+            log.info("fileInfo[{}]", fileInfo);
+
+            // Image Save To Server
+            saveImage(multipartFile, directoryName, randomFileName, fileExt);
+
+            // DB save
+            result.add(fileRepository.save(fileInfo));
+        }
+
+        return result;
     }
 
     private FileInfo getFileInfo(Long fileId) {
