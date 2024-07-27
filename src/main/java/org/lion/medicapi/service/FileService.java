@@ -5,12 +5,14 @@ import lombok.extern.slf4j.Slf4j;
 import org.lion.medicapi.domain.FileInfo;
 import org.lion.medicapi.exception.APIException;
 import org.lion.medicapi.repository.FileRepository;
+import org.lion.medicapi.util.FileUtils;
 import org.lion.medicapi.util.ImageType;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.UrlResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
@@ -18,6 +20,8 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.Objects;
 import java.util.UUID;
+
+import static org.lion.medicapi.util.Const.*;
 
 @Slf4j
 @Service
@@ -29,21 +33,25 @@ public class FileService {
     private String ROOT_PATH;
     private final FileRepository fileRepository;
 
-    private static final String DIRECTORY_PRODUCT = "/product";
-    private static final String DIRECTORY_REVIEW = "/review";
-    private static final String DIRECTORY_PROIFLE = "/profile";
-
-    public Object getFile(Long fileId) {
-        final FileInfo fileInfo = fileRepository.findById(fileId).orElseThrow(() -> new APIException("file not found", HttpStatus.BAD_REQUEST));
-
-        final String fileName = fileInfo.getFileName();
-        final String fileUrl = fileInfo.getFileUrl();
-        final String fileExt = fileInfo.getFileExt();
-        final String targetFile = ROOT_PATH + fileUrl + "/" + fileName + "." + fileExt;
+    public UrlResource getFileV1(Long fileId) {
+        final FileInfo fileInfo = getFileInfo(fileId);
+        final String targetFile = FileUtils.getFilePullPath(fileInfo, ROOT_PATH);
 
         try {
             return new UrlResource("file:" + targetFile);
         } catch (MalformedURLException e) {
+            log.error("file not found", e);
+            throw new APIException("file not found", HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    public byte[] getFileV2(Long fileId) {
+        final FileInfo fileInfo = getFileInfo(fileId);
+        final String targetFile = FileUtils.getFilePullPath(fileInfo, ROOT_PATH);
+
+        try {
+            return FileCopyUtils.copyToByteArray(new File(targetFile));
+        } catch (IOException e) {
             log.error("file not found", e);
             throw new APIException("file not found", HttpStatus.BAD_REQUEST);
         }
@@ -62,7 +70,7 @@ public class FileService {
             case USER_PROFILE -> DIRECTORY_PROIFLE;
             case PRODUCT -> DIRECTORY_PRODUCT;
         };
-        final String fileExt = extractExt(Objects.requireNonNull(multipartFile.getOriginalFilename()));
+        final String fileExt = FileUtils.extractExt(Objects.requireNonNull(multipartFile.getOriginalFilename()));
 
         final FileInfo fileInfo = FileInfo.builder()
                 .fileName(randomFileName)
@@ -78,6 +86,10 @@ public class FileService {
 
         // DB save
         return fileRepository.save(fileInfo);
+    }
+
+    private FileInfo getFileInfo(Long fileId) {
+        return fileRepository.findById(fileId).orElseThrow(() -> new APIException("file not found", HttpStatus.BAD_REQUEST));
     }
 
     private void saveImage(MultipartFile multipartFile, String directoryName, String fileName, String ext) {
@@ -96,11 +108,5 @@ public class FileService {
         if (!directory.exists()) {
             directory.mkdirs(); // 디렉터리 생성
         }
-    }
-    // 확장자 추출
-
-    private String extractExt(String originalFilename) {
-        final int pos = originalFilename.lastIndexOf(".");
-        return originalFilename.substring(pos + 1);
     }
 }

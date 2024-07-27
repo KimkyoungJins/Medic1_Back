@@ -30,9 +30,15 @@ public class FileController {
         return ResponseEntity.ok(fileService.saveFile(file, ImageType.PRODUCT));
     }
 
-    @GetMapping
-    public ResponseEntity<?> getFile(@RequestParam final Long fileId) {
+    @GetMapping("/v1")
+    public ResponseEntity<?> getFileV1(@RequestParam final Long fileId) {
         log.info("fileId[{}]", fileId);
-        return ResponseEntity.ok(fileService.getFile(fileId));
+        return ResponseEntity.ok(fileService.getFileV1(fileId));
+    }
+
+    @GetMapping("/v2")
+    public ResponseEntity<?> getFileV2(@RequestParam final Long fileId) {
+        log.info("fileId[{}]", fileId);
+        return ResponseEntity.ok(fileService.getFileV2(fileId));
     }
 }
