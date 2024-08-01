@@ -2,15 +2,12 @@ server:
   port: 8001
 
 spring:
-
   jpa:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
-        format_sql: false
-        show_sql: true
     hibernate:
-      ddl-auto: none # must be none -> Protected Product Data
+      ddl-auto: none # must be none
 
   datasource:
     url: jdbc:mysql://52.78.188.110:3306/medic?allowPublicKeyRetrieval=true&useSSL=false
@@ -23,38 +20,3 @@ spring:
       enabled: true
       max-file-size: 30MB    # default : 1MB
       max-request-size: 30MB # default : 10MB
-
-path:
-  image: /Users/2dongyeop/kmong/medic-api/images
-
-cors:
-  mapping: "/**"
-  methods: GET, PATCH, DELETE, POST, OPTIONS, PUT
-  headers: "*"
-  allowed-origins: "*"
-
-jwt:
-  access:
-    secret-key: medic-jwt-secret
-    expired-milly-seconds: 86400000 # 24 hour
-
-
-logging:
-  pattern:
-    console: "[%d{yyyy-MM-dd HH:mm:ss}:%-3relative][%clr(%-5p)][%thread][%clr(%logger{20}.%method){cyan}] - %msg%n"
-    file: "[%d{yyyy-MM-dd HH:mm:ss}:%-3relative][%-5p][%thread][%logger{20}.%method] - %msg%n"
-
-  file:
-    name: ./logs/medic.log
-
-  logback:
-    rollingpolicy:
-      max-file-size: 10MB
-      max-history: 30
-      file-name-pattern: "${LOG_FILE}%d{yyyy-MM-dd}-%i.log"
-      total-size-cap: 50MB
-
-springdoc:
-  swagger-ui:
-    enabled: true
-    operations-sorter: alpha
